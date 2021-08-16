@@ -6,7 +6,7 @@ import MyPhoto2 from "../images/me2.jpg";
 
 const projects = [
   {
-    title: "This resumé",
+    title: "This resumé 😃",
     subheader: "built with React",
     image: MyPhoto2,
     content: "And using Material-UI",
