@@ -1,42 +1,52 @@
 import "./App.css";
 import React from "react";
-import Moment from "react-moment";
-
+import ReactRoundedImage from "react-rounded-image";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// Components
+import Skills from "./components/Skills";
+import EducationWorkGrid from "./components/EducationWorkGrid";
+import Experience from "./components/Experience";
 //  MUI
-import { createTheme } from "@material-ui/core";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  createTheme,
+  Link,
+  IconButton,
+  ButtonBase,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Card from "@material-ui/core/Card";
-import Paper from "@material-ui/core/Paper";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import { ThemeProvider } from "@material-ui/styles";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import { Button } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
+import {
+  Tab,
+  Tabs,
+  Box,
+  Button,
+  Paper,
+  Grid,
+  CssBaseline,
+  Typography,
+} from "@material-ui/core";
 // Icons
 import SchoolIcon from "@material-ui/icons/School";
 import WorkIcon from "@material-ui/icons/Work";
 import EmailIcon from "@material-ui/icons/Email";
 import FaceIcon from "@material-ui/icons/Face";
 import CodeIcon from "@material-ui/icons/Code";
-// Logos
-import ReactLogo from "./logos/react.svg";
-import CssLogo from "./logos/css.svg";
-import DRFLogo from "./logos/djangrest.png";
-import HtmlLogo from "./logos/html.svg";
-import JsLogo from "./logos/js.svg";
-import PythonLogo from "./logos/python.svg";
-import SqlLogo from "./logos/sql.svg";
-import DjangoLogo from "./logos/django.svg";
-import XpMoment from "./components/XpMoment";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import TwitterIcon from "@material-ui/icons/Twitter";
+// Logos and images
+import MyPhoto from "./images/me.jpg";
 
-const theme = createTheme({
+const getDiffInYears = (date1, date2) => {
+  const diffInMs = Math.abs(date2 - date1);
+  const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  return diffInDays / 365;
+};
+export const theme = createTheme({
   palette: {
     type: "dark",
 
@@ -49,8 +59,8 @@ const theme = createTheme({
     secondary: {
       light: "#404040",
       main: "#404040",
-      dark: "#404040",
-      contrastText: "#ffffff",
+      dark: "#121212",
+      contrastText: "#b3b3b3",
     },
     action: {
       disabledBackground: "#121212",
@@ -62,28 +72,71 @@ const theme = createTheme({
     },
   },
   spacing: 8,
+  typography: {
+    fontFamily: ["Maven Pro", "sans-serif"].join(","),
+  },
 });
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "121212",
     justify: "center",
+    fontFamily: "Maven Pro",
   },
   div: {
     backgroundColor: "#181818",
+    marginRight: "5px",
+    marginLeft: "5px",
   },
   logo: {
-    height: "100px",
+    maxWidth: "100%",
+    maxHeight: "80px",
   },
   card: {
-    width: "250px",
-    height: "250px",
+    width: "20%",
+    height: "20%",
+    marginTop: 10,
+    marginLeft: 0,
   },
-  tab: {
+  tabPanel: {
     width: "100%",
   },
-  mainGrid: {
-    minHeight: "100vh",
+  tab: {
+    minWidth: 50,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.75rem",
+    },
+  },
+  mainGrid: {},
+  paper: {
+    height: "88vh",
+    marginLeft: 10,
+    marginTop: 10,
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+  image: {
+    marginTop: 10,
+  },
+  detailsContainer: {
+    marginTop: 5,
+  },
+
+  noMobile: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+    accordionRoot: {
+      width: "100%",
+    },
+    heading: {
+      marginLeft: 10,
+      paddingLeft: 5,
+    },
+    emailIcon: {
+      marginRight: 5,
+    },
   },
 }));
 
@@ -110,20 +163,9 @@ function TabPanel(props) {
 function App() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-
-  const pythonDate = new Date("2020-08-17");
-  const reactDate = new Date("2021-02-01");
-  const checkDate = new Date("2015-05-18");
-  const logoNames = [
-    { name: "React", logo: ReactLogo, date: reactDate },
-    { name: "Django Rest Framework", logo: DRFLogo, date: reactDate },
-    { name: "Django", logo: DjangoLogo, date: reactDate },
-    { name: "Python", logo: PythonLogo, date: pythonDate },
-    { name: "Javascript", logo: JsLogo, date: pythonDate },
-    { name: "SQL", logo: SqlLogo },
-    { name: "CSS", logo: CssLogo },
-    { name: "HTML", logo: HtmlLogo },
-  ];
+  const notify = () => toast("Thank you for taking an interest!");
+  const birthDate = new Date("1991-11-05");
+  const todayDate = new Date();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -134,6 +176,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className={classes.div}>
+          <ToastContainer />
           <Tabs
             value={value}
             className={classes.root}
@@ -141,69 +184,133 @@ function App() {
             indicatorColor="primary"
             textColor="primary"
             centered
+            variant="fullWidth"
           >
-            <Tab icon={<FaceIcon />} label="About Me" />
-            <Tab icon={<SchoolIcon />} label="Education" />
-            <Tab icon={<CodeIcon />} label="Skills" />
-            <Tab icon={<WorkIcon />} label="Experience" />
+            <Tab className={classes.tab} icon={<FaceIcon />} label="About Me" />
+            <Tab
+              className={classes.tab}
+              icon={<SchoolIcon />}
+              label="Education & Work"
+            />
+            <Tab className={classes.tab} icon={<CodeIcon />} label="Skills" />
+            <Tab
+              className={classes.tab}
+              icon={<WorkIcon />}
+              label="Experience"
+            />
           </Tabs>
         </div>
-        <TabPanel value={value} index={0}>
-          About Me
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          Education
-        </TabPanel>
-        <TabPanel className={classes.tab} value={value} index={2}>
-          <Grid
-            container
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            className={classes.mainGrid}
-          >
-            <Grid
-              item
-              container
-              spacing={1}
-              justifyContent="center"
-              alignItems="flex-start"
-              direction="row"
-              className={classes.tab}
-            >
-              {logoNames.map((logoObj) => (
-                <Grid
-                  xs={2}
-                  md={4}
-                  key={logoObj.name + "Grid"}
-                  item
-                  className={classes.card}
-                >
-                  <img
-                    alt={logoObj.name}
-                    src={logoObj.logo}
-                    title={logoObj.name}
-                    className={classes.logo}
+        <Grid container className={classes.detailsContainer}>
+          <Grid item sm={false} md={2}>
+            <Paper className={classes.paper}>
+              <Grid
+                container
+                direction="column"
+                alignItems="center"
+                spacing={1}
+                justifyContent="flex-start"
+              >
+                <Grid item onClick={notify} className={classes.image}>
+                  <ReactRoundedImage
+                    roundedSize="5"
+                    roundedColor="#000000"
+                    image={MyPhoto}
+                    hoverColor="#fff"
                   />
-                  <Typography gutterBottom component="div" variant="h5">
-                    {logoObj.name}
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    component="div"
-                    variant="h7"
-                    color="secondary"
-                  >
-                    {logoObj.date ? <XpMoment date={logoObj.date} /> : null}
-                  </Typography>
+                  <Grid item>
+                    <Typography variant="h3">Elam Buteil</Typography>
+                    <Typography variant="h6" color="textSecondary">
+                      Full-Stack Web Developer
+                    </Typography>
+
+                    <Typography variant="h6" color="textSecondary">
+                      {Math.floor(getDiffInYears(birthDate, todayDate))} years
+                      old
+                    </Typography>
+                    <Typography variant="h6" color="textSecondary">
+                      Haifa
+                    </Typography>
+
+                    <div className={classes.accordionRoot}>
+                      <Accordion>
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls="panel1a-content"
+                          id="panel1a-header"
+                        >
+                          <Grid container spacing={2}>
+                            <Grid item>
+                              {" "}
+                              <EmailIcon className={classes.emailIcon} />
+                            </Grid>
+                            <Grid item>
+                              {" "}
+                              <Typography className={classes.heading}>
+                                Contact me
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <Grid container direction="column">
+                            <Grid item>
+                              <Link href="mailto:elam91@gmail.com">
+                                elam91@gmail.com
+                              </Link>
+                            </Grid>
+                            <Grid
+                              item
+                              container
+                              spacing={2}
+                              justifyContent="center"
+                              className={classes.socialLinks}
+                            >
+                              <Grid item>
+                                <IconButton
+                                  href="https://www.linkedin.com/in/elam-buteil-81738317b/"
+                                  target="_blank"
+                                  rel="noopener"
+                                  aria-label="link to project"
+                                >
+                                  <LinkedInIcon />
+                                </IconButton>
+                              </Grid>
+                              <Grid item>
+                                <IconButton
+                                  href="https://twitter.com/1queerjew"
+                                  target="_blank"
+                                  rel="noopener"
+                                  aria-label="link to project"
+                                >
+                                  <TwitterIcon />
+                                </IconButton>
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                        </AccordionDetails>
+                      </Accordion>
+                    </div>
+                  </Grid>
                 </Grid>
-              ))}
-            </Grid>
+              </Grid>
+            </Paper>
           </Grid>
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-          Experience
-        </TabPanel>
+          <Grid item sm={false} md={1} className={classes.noMobile}></Grid>
+          <Grid item sm={12} md={8}>
+            <TabPanel value={value} index={0}>
+              About Me
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <EducationWorkGrid />
+            </TabPanel>
+            <TabPanel className={classes.tabPanel} value={value} index={2}>
+              <Skills />
+            </TabPanel>
+            <TabPanel value={value} index={3}>
+              <Experience />
+            </TabPanel>
+          </Grid>
+        </Grid>
       </ThemeProvider>
     </div>
   );
