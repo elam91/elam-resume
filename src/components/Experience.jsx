@@ -34,7 +34,7 @@ const projects = [
 export default function Experience() {
   return (
     <React.Fragment>
-      <Grid container>
+      <Grid spacing={2} container>
         {projects.map((project) => (
           <Grid key={project.title + "Grid"} item xs={12} md={4}>
             <ProjectCard
