@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Skills from "./components/Skills";
 import EducationWorkGrid from "./components/EducationWorkGrid";
 import Experience from "./components/Experience";
+import AboutMe from "./components/AboutMe";
 
 //  MUI
 import { createTheme, IconButton } from "@material-ui/core";
@@ -279,7 +280,7 @@ function App() {
           <Grid item sm={false} md={1} className={classes.noMobile}></Grid>
           <Grid item sm={12} md={8}>
             <TabPanel value={value} index={0}>
-              About Me
+              <AboutMe />
             </TabPanel>
             <TabPanel value={value} index={1}>
               <EducationWorkGrid />

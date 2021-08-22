@@ -1,7 +1,7 @@
 import React from "react";
-import XpMoment from "./XpMoment";
+
 // MUI
-import { Grid, Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 // Logos
@@ -13,6 +13,9 @@ import JsLogo from "../logos/js.svg";
 import PythonLogo from "../logos/python.svg";
 import SqlLogo from "../logos/sql.svg";
 import DjangoLogo from "../logos/django.svg";
+import GitLogo from "../logos/git.svg";
+// Components
+import Skill from "./Skill";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,12 +75,19 @@ export default function Skills() {
   const pythonDate = new Date("2020-08-17");
   const reactDate = new Date("2021-02-01");
   const logoNames = [
-    { name: "React", logo: ReactLogo, date: reactDate },
+    {
+      name: "React",
+      logo: ReactLogo,
+      date: reactDate,
+      description:
+        "I've constructed an entire frontend app from scratch, including responsive design, implementing a design with Material-Ui, creating custom components... ",
+    },
     { name: "Django Rest Framework", logo: DRFLogo, date: reactDate },
     { name: "Django", logo: DjangoLogo, date: reactDate },
     { name: "Python", logo: PythonLogo, date: pythonDate },
     { name: "Javascript", logo: JsLogo, date: pythonDate },
     { name: "SQL", logo: SqlLogo },
+    { name: "Git", logo: GitLogo },
     { name: "CSS", logo: CssLogo },
     { name: "HTML", logo: HtmlLogo },
   ];
@@ -100,31 +110,7 @@ export default function Skills() {
         className={classes.tab}
       >
         {logoNames.map((logoObj) => (
-          <Grid
-            xs={6}
-            md={4}
-            key={logoObj.name + "Grid"}
-            item
-            className={classes.card}
-          >
-            <img
-              alt={logoObj.name}
-              src={logoObj.logo}
-              title={logoObj.name}
-              className={classes.logo}
-            />
-            <Typography gutterBottom component="div" variant="h5">
-              {logoObj.name}
-            </Typography>
-            <Typography
-              gutterBottom
-              color="secondary"
-              component="div"
-              variant="h6"
-            >
-              {logoObj.date ? <XpMoment date={logoObj.date} /> : null}
-            </Typography>
-          </Grid>
+          <Skill key={logoObj.name + "Object"} logoObj={logoObj} />
         ))}
       </Grid>
       <Grid item sm={false} md={1} className={classes.noMobile}></Grid>
