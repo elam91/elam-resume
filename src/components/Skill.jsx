@@ -81,6 +81,13 @@ export default function Skill({ logoObj }) {
         item
         className={classes.card}
       >
+        <img
+          alt={logoObj.name}
+          src={logoObj.logo}
+          title={logoObj.name}
+          className={classes.logo}
+          onClick={handleClick}
+        />
         {logoObj.description && (
           <SkillPopover
             anchor={anchorPop}
@@ -89,13 +96,6 @@ export default function Skill({ logoObj }) {
             content={logoObj.description ? logoObj.description : null}
           />
         )}
-        <img
-          alt={logoObj.name}
-          src={logoObj.logo}
-          title={logoObj.name}
-          className={classes.logo}
-          onClick={handleClick}
-        />
         <Typography gutterBottom component="div" variant="h5">
           {logoObj.name}
         </Typography>

@@ -1,9 +1,21 @@
 import { Typography } from "@material-ui/core";
 import React from "react";
+import AnimatedMe from "../images/meanimated.png";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  image: {
+    [theme.breakpoints.up("md")]: {
+      marginLeft: "50%",
+      transform: "scaleX(-1)",
+    },
+  },
+}));
 
 export default function AboutMe() {
+  const classes = useStyles();
   return (
-    <React.Fragment>
+    <div>
       <Typography align="left" variant="h2">
         Hi!
       </Typography>
@@ -27,6 +39,7 @@ export default function AboutMe() {
         You're welcome check out the rest of this résumé, see my skills and
         contact me.
       </Typography>
-    </React.Fragment>
+      <img className={classes.image} src={AnimatedMe} alt="me animated"></img>
+    </div>
   );
 }
