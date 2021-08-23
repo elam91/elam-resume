@@ -96,7 +96,7 @@ export default function Skills() {
       name: "Django",
       logo: DjangoLogo,
       date: reactDate,
-      description: ``,
+      description: `Creating and managing projects, customizing the admin site, testing, models, database migration, multiple apps.`,
     },
     { name: "Python", logo: PythonLogo, date: pythonDate },
     { name: "Javascript", logo: JsLogo, date: pythonDate },
