@@ -123,7 +123,7 @@ export default function Skills() {
       <Grid
         item
         container
-        spacing={2}
+        spacing={4}
         justifyContent="center"
         alignItems="flex-start"
         direction="row"

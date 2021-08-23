@@ -7,33 +7,26 @@ const useStyles = makeStyles((theme) => ({
   typography: {
     padding: theme.spacing(2),
   },
-  popRoot: {
-    maxWidth: "60vw",
-    alignSelf: "center",
+  popPaper: {
+    maxWidth: "25%",
     [theme.breakpoints.down("sm")]: {
       maxWidth: "90vw",
     },
   },
 }));
 
-export default function SkillPopover({
-  anchor,
-  onClose,
-  content,
-  key,
-  ...rest
-}) {
+export default function SkillPopover({ anchor, onClose, content, ...rest }) {
   const classes = useStyles();
 
   const open = Boolean(anchor);
-  const id = open ? "skill-popover" + key : undefined;
+  const id = open ? "skill-popover" : undefined;
 
   return (
     <div>
       <Popover
-        className={classes.popRoot}
         id={id}
         open={open}
+        classes={{ paper: classes.popPaper }}
         anchorEl={anchor}
         onClose={onClose}
         anchorOrigin={{
@@ -46,7 +39,9 @@ export default function SkillPopover({
         }}
         {...rest}
       >
-        <Typography className={classes.typography}>{content}</Typography>
+        <Typography noWrap={false} className={classes.typography}>
+          {content}
+        </Typography>
       </Popover>
     </div>
   );

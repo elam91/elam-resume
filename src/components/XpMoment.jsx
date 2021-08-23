@@ -8,13 +8,13 @@ const getDiffInYears = (date1, date2) => {
 export default function XpMoment({ date }) {
   const todayDate = new Date();
   let text = "";
-  if (getDiffInYears(date, todayDate) < 1.5) {
-    text = "1 year";
+  if (getDiffInYears(date, todayDate) < 2) {
+    text = "";
   }
 
   return (
     <div>
-      {text === "1 year" ? (
+      {text === "" ? (
         text
       ) : (
         <Moment unit="months" fromNow ago>

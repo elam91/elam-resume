@@ -69,18 +69,13 @@ export default function Skill({ logoObj }) {
   };
   return (
     <Tooltip
-      key={logoObj.name + "Tooltip"}
-      style={logoObj.description ? { cursor: "pointer" } : null}
+      style={
+        logoObj.description ? { cursor: "pointer" } : { cursor: "default" }
+      }
       placement="top"
       title={logoObj.description ? "Click for more details" : ""}
     >
-      <Grid
-        xs={6}
-        md={4}
-        key={logoObj.name + "Grid"}
-        item
-        className={classes.card}
-      >
+      <Grid xs={6} md={4} item className={classes.card}>
         <img
           alt={logoObj.name}
           src={logoObj.logo}
@@ -92,7 +87,6 @@ export default function Skill({ logoObj }) {
           <SkillPopover
             anchor={anchorPop}
             onClose={handleClose}
-            key={logoObj.name + "Popover"}
             content={logoObj.description ? logoObj.description : null}
           />
         )}
