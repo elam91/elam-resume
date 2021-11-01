@@ -36,7 +36,7 @@ export default function AboutMe() {
           <li>I am free for part time work for short or long term projects.</li>
           <li>I am very flexible and open minded.</li>
         </ul>
-        You're welcome check out the rest of this résumé, see my skills and
+        You're welcome to check out the rest of this résumé, see my skills and
         contact me.
       </Typography>
       <img className={classes.image} src={AnimatedMe} alt="me animated"></img>
