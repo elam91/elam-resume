@@ -4,7 +4,7 @@ import Airtable from "airtable";
 // MUI
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
+// .
 // Components
 import Skill from "./Skill";
 
