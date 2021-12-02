@@ -69,41 +69,36 @@ export default function Skill({ logoObj }) {
   };
   return (
     <React.Fragment>
-      <Tooltip
-        style={
-          logoObj.description ? { cursor: "pointer" } : { cursor: "default" }
-        }
-        placement="top"
-        title={logoObj.description ? "Click for more details" : ""}
-      >
-        <Grid xs={6} md={4} item className={classes.card}>
+      <Grid xs={6} md={4} item className={classes.card}>
+        <Tooltip
+          style={
+            logoObj.description ? { cursor: "pointer" } : { cursor: "default" }
+          }
+          placement="top"
+          disableFocusListener
+          title={logoObj.description ? "Click for more details" : ""}
+        >
           <img
             alt={logoObj.name}
             src={logoObj.logo[0].url}
-            title={logoObj.name}
             className={classes.logo}
             onClick={handleClick}
           />
-          {logoObj.description && (
-            <SkillPopover
-              anchor={anchorPop}
-              onClose={handleClose}
-              content={logoObj.description ? logoObj.description : null}
-            />
-          )}
-          <Typography gutterBottom component="div" variant="h5">
-            {logoObj.name}
-          </Typography>
-          <Typography
-            gutterBottom
-            color="secondary"
-            component="div"
-            variant="h6"
-          >
-            {logoObj.date ? <XpMoment date={logoObj.date} /> : null}
-          </Typography>
-        </Grid>
-      </Tooltip>
+        </Tooltip>
+        {logoObj.description && (
+          <SkillPopover
+            anchor={anchorPop}
+            onClose={handleClose}
+            content={logoObj.description ? logoObj.description : null}
+          />
+        )}
+        <Typography gutterBottom component="div" variant="h5">
+          {logoObj.name}
+        </Typography>
+        <Typography gutterBottom color="secondary" component="div" variant="h6">
+          {logoObj.date ? <XpMoment date={logoObj.date} /> : null}
+        </Typography>
+      </Grid>
     </React.Fragment>
   );
 }
