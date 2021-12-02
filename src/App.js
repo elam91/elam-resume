@@ -9,7 +9,8 @@ import Experience from "./components/Experience";
 import AboutMe from "./components/AboutMe";
 
 //  MUI
-import { createTheme, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
+import { unstable_createMuiStrictModeTheme as createTheme } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import {
@@ -173,128 +174,137 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <React.Fragment>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div className={classes.div}>
-          <ToastContainer />
-          <Tabs
-            value={value}
-            className={classes.root}
-            onChange={handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-            centered
-            variant="fullWidth"
-          >
-            <Tab className={classes.tab} icon={<FaceIcon />} label="About Me" />
-            <Tab
-              className={classes.tab}
-              icon={<SchoolIcon />}
-              label="Education & Work"
-            />
-            <Tab className={classes.tab} icon={<CodeIcon />} label="Skills" />
-            <Tab
-              className={classes.tab}
-              icon={<WorkIcon />}
-              label="Experience"
-            />
-          </Tabs>
-        </div>
+        <div className="App">
+          <div className={classes.div}>
+            <ToastContainer />
+            <Tabs
+              value={value}
+              className={classes.root}
+              onChange={handleChange}
+              indicatorColor="primary"
+              textColor="primary"
+              centered
+              variant="fullWidth"
+            >
+              <Tab
+                className={classes.tab}
+                icon={<FaceIcon />}
+                label="About Me"
+              />
+              <Tab
+                className={classes.tab}
+                icon={<SchoolIcon />}
+                label="Education & Work"
+              />
+              <Tab className={classes.tab} icon={<CodeIcon />} label="Skills" />
+              <Tab
+                className={classes.tab}
+                icon={<WorkIcon />}
+                label="Experience"
+              />
+            </Tabs>
+          </div>
 
-        <Grid container className={classes.detailsContainer}>
-          <Grid
-            className={classes.mobileOnly}
-            item
-            container
-            sm={12}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-          >
+          <Grid container className={classes.detailsContainer}>
             <Grid
+              className={classes.mobileOnly}
               item
               container
+              sm={12}
+              direction="column"
               alignItems="center"
               justifyContent="center"
-              xs={12}
             >
-              <Grid item xs={2} />
-              <Grid item xs={2}>
-                <Avatar style={{ alignSelf: "center" }} src={MyPhoto}></Avatar>
+              <Grid
+                item
+                container
+                alignItems="center"
+                justifyContent="center"
+                xs={12}
+              >
+                <Grid item xs={2} />
+                <Grid item xs={2}>
+                  <Avatar
+                    style={{ alignSelf: "center" }}
+                    src={MyPhoto}
+                  ></Avatar>
+                </Grid>
+                <Grid item xs={8}>
+                  <Typography variant="body1">Elam Buteil</Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    Full-Stack Web Developer
+                  </Typography>
+                  <Typography variant="caption" color="textSecondary">
+                    {Math.floor(getDiffInYears(birthDate, todayDate))} years
+                    old, Haifa
+                  </Typography>
+                </Grid>
               </Grid>
-              <Grid item xs={8}>
-                <Typography variant="body1">Elam Buteil</Typography>
-                <Typography variant="body2" color="textSecondary">
-                  Full-Stack Web Developer
-                </Typography>
-                <Typography variant="caption" color="textSecondary">
-                  {Math.floor(getDiffInYears(birthDate, todayDate))} years old,
-                  Haifa
-                </Typography>
-              </Grid>
-            </Grid>
 
-            <Grid
-              item
-              container
-              spacing={2}
-              justifyContent="center"
-              className={classes.socialLinks}
-            >
-              <Grid item>
-                <IconButton
-                  href="https://www.linkedin.com/in/elam-buteil-81738317b/"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="link to project"
-                >
-                  <LinkedInIcon />
-                </IconButton>
-              </Grid>
-              <Grid item>
-                <IconButton
-                  href="https://twitter.com/1queerjew"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="link to project"
-                >
-                  <TwitterIcon />
-                </IconButton>
-              </Grid>
-              <Grid item>
-                <IconButton
-                  href="mailto:elam91@gmail.com"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="link to project"
-                >
-                  <EmailIcon />
-                </IconButton>
+              <Grid
+                item
+                container
+                spacing={2}
+                justifyContent="center"
+                className={classes.socialLinks}
+              >
+                <Grid item>
+                  <IconButton
+                    href="https://www.linkedin.com/in/elam-buteil-81738317b/"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="link to project"
+                  >
+                    <LinkedInIcon />
+                  </IconButton>
+                </Grid>
+                <Grid item>
+                  <IconButton
+                    href="https://twitter.com/1queerjew"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="link to project"
+                  >
+                    <TwitterIcon />
+                  </IconButton>
+                </Grid>
+                <Grid item>
+                  <IconButton
+                    href="mailto:elam91@gmail.com"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="link to project"
+                  >
+                    <EmailIcon />
+                  </IconButton>
+                </Grid>
               </Grid>
             </Grid>
+            <Grid item sm={false} md={2}>
+              <DetailsPanel />
+            </Grid>
+            <Grid item sm={false} md={1} className={classes.noMobile}></Grid>
+            <Grid item sm={12} md={8}>
+              <TabPanel value={value} index={0}>
+                <AboutMe />
+              </TabPanel>
+              <TabPanel value={value} index={1}>
+                <EducationWorkGrid />
+              </TabPanel>
+              <TabPanel className={classes.tabPanel} value={value} index={2}>
+                <Skills />
+              </TabPanel>
+              <TabPanel value={value} index={3}>
+                <Experience />
+              </TabPanel>
+            </Grid>
           </Grid>
-          <Grid item sm={false} md={2}>
-            <DetailsPanel />
-          </Grid>
-          <Grid item sm={false} md={1} className={classes.noMobile}></Grid>
-          <Grid item sm={12} md={8}>
-            <TabPanel value={value} index={0}>
-              <AboutMe />
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-              <EducationWorkGrid />
-            </TabPanel>
-            <TabPanel className={classes.tabPanel} value={value} index={2}>
-              <Skills />
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-              <Experience />
-            </TabPanel>
-          </Grid>
-        </Grid>
+        </div>
       </ThemeProvider>
-    </div>
+    </React.Fragment>
   );
 }
 

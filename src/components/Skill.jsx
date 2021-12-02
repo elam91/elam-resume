@@ -68,35 +68,42 @@ export default function Skill({ logoObj }) {
     setAnchorPop(null);
   };
   return (
-    <Tooltip
-      style={
-        logoObj.description ? { cursor: "pointer" } : { cursor: "default" }
-      }
-      placement="top"
-      title={logoObj.description ? "Click for more details" : ""}
-    >
-      <Grid xs={6} md={4} item className={classes.card}>
-        <img
-          alt={logoObj.name}
-          src={logoObj.logo}
-          title={logoObj.name}
-          className={classes.logo}
-          onClick={handleClick}
-        />
-        {logoObj.description && (
-          <SkillPopover
-            anchor={anchorPop}
-            onClose={handleClose}
-            content={logoObj.description ? logoObj.description : null}
+    <React.Fragment>
+      <Tooltip
+        style={
+          logoObj.description ? { cursor: "pointer" } : { cursor: "default" }
+        }
+        placement="top"
+        title={logoObj.description ? "Click for more details" : ""}
+      >
+        <Grid xs={6} md={4} item className={classes.card}>
+          <img
+            alt={logoObj.name}
+            src={logoObj.logo[0].url}
+            title={logoObj.name}
+            className={classes.logo}
+            onClick={handleClick}
           />
-        )}
-        <Typography gutterBottom component="div" variant="h5">
-          {logoObj.name}
-        </Typography>
-        <Typography gutterBottom color="secondary" component="div" variant="h6">
-          {logoObj.date ? <XpMoment date={logoObj.date} /> : null}
-        </Typography>
-      </Grid>
-    </Tooltip>
+          {logoObj.description && (
+            <SkillPopover
+              anchor={anchorPop}
+              onClose={handleClose}
+              content={logoObj.description ? logoObj.description : null}
+            />
+          )}
+          <Typography gutterBottom component="div" variant="h5">
+            {logoObj.name}
+          </Typography>
+          <Typography
+            gutterBottom
+            color="secondary"
+            component="div"
+            variant="h6"
+          >
+            {logoObj.date ? <XpMoment date={logoObj.date} /> : null}
+          </Typography>
+        </Grid>
+      </Tooltip>
+    </React.Fragment>
   );
 }
