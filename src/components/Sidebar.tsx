@@ -1,9 +1,3 @@
-// import { Link } from "react-router-dom";
-// import Header from "../Header";
-
-// import LogoTitle from "../LogoTitle";
-// import { globalState } from "../../globalstate";
-
 import clsx from "clsx";
 import useGetPersonalInfo from "../apiHooks/useGetPersonalInfo";
 import { differenceInYears, format } from "date-fns";
