@@ -17,11 +17,11 @@ const Sidebar = () => {
     <aside
       id="sidebar"
       className={clsx({
-        "hidden lg:fixed w-96  top-0 left-0 z-10 pt-16 lg:flex flex-col  text-base whitespace-nowrap items-center justify-center  h-screen min-h-screen overflow-hidden":
+        "hidden lg:fixed w-96  top-0 left-0 z-10 lg:flex flex-col  text-base whitespace-nowrap items-center justify-center  h-screen min-h-screen overflow-hidden":
           true,
       })}
     >
-      <div className="py-40 px-10  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-500 w-5/6 rounded-xl h-5/6 flex flex-col justify-start items-center gap-y-10">
+      <div className="py-32  px-10  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-500  rounded-xl flex flex-col justify-start items-center gap-y-10">
         <div className="flex flex-col items-center">
           <h1 className="text-5xl font-extralight">{`${data.firstName} ${data.lastName}`}</h1>
           <h2 className="text-base">{data.title}</h2>

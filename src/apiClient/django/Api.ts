@@ -204,6 +204,11 @@ export interface Project {
    * @maxLength 200
    */
   githubLink?: string | null;
+  /**
+   * @format uri
+   * @maxLength 200
+   */
+  githubLink2?: string | null;
 }
 
 export interface Skill {
@@ -233,16 +238,15 @@ export interface Social {
    * @max 2147483647
    */
   order: number;
-  /**
-   * @format uri
-   * @maxLength 200
-   */
+  /** @maxLength 255 */
   url: string;
+  /** @maxLength 255 */
+  icon?: string | null;
   /**
    * @format uri
    * @maxLength 200
    */
-  icon?: string | null;
+  image?: string | null;
 }
 
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, HeadersDefaults, ResponseType } from "axios";
@@ -392,6 +396,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      */
     experiencesList: (
       query?: {
+        /**
+         * * `WORK` - Work
+         * * `EDU` - Education
+         */
+        experienceType?: "EDU" | "WORK";
         /** A page number within the paginated result set. */
         page?: number;
       },
@@ -453,12 +462,12 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      *
      * @tags long_descriptions
      * @name LongDescriptionsRetrieve
-     * @request GET:/long_descriptions/{id}/
+     * @request GET:/long_descriptions/{page}/
      * @secure
      */
-    longDescriptionsRetrieve: (id: number, params: RequestParams = {}) =>
+    longDescriptionsRetrieve: (page: "INTRO", params: RequestParams = {}) =>
       this.request<LongDescription, any>({
-        path: `/long_descriptions/${id}/`,
+        path: `/long_descriptions/${page}/`,
         method: "GET",
         secure: true,
         format: "json",

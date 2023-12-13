@@ -1,0 +1,84 @@
+import clsx from "clsx";
+import { Project } from "../../apiClient/django/Api";
+import {
+  CommandLineIcon,
+  ComputerDesktopIcon,
+} from "@heroicons/react/24/outline";
+
+const ProjectCard = ({ project }: { project: Project }) => {
+  return (
+    <div
+      key={project.id}
+      className="flex flex-col min-h-0 col-span-3 lg:col-span-1  justify-between px-0  pb-6  text-ellipsis overflow-hidden  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500 rounded-xl   max-w-none"
+    >
+      <div>
+        <div
+          className={clsx({
+            "flex  items-start w-full overflow-hidden h-[200px]": true,
+          })}
+        >
+          <img
+            className="object-cover rounded-xl"
+            src={
+              project.image
+                ? project.image
+                : "https://res.cloudinary.com/dgfu9yjis/image/upload/v1702067864/samples/dessert-on-a-plate.jpg"
+            }
+            alt={project.name}
+          />
+        </div>
+        <div className="px-4 pt-1">
+          <h2 className="text-xl text-black">{project.name}</h2>
+
+          <div
+            className=" prose text-gray-800 !font-light prose-p:text-xs prose-li:text-xs prose-pi:font-light prose-li:font-light prose-headings:font-extralight  prose-li:marker:text-black"
+            dangerouslySetInnerHTML={{ __html: project.description || "" }}
+          ></div>
+        </div>
+      </div>
+      <div
+        className="w-full flex gap-x-2 text-xs h-16 font-light p-2 px-4  flex-row mt-10"
+        id="buttonGroup"
+      >
+        {project.websiteLink ? (
+          <a
+            href={project.websiteLink}
+            target="_blank"
+            className="flex items-center  pr-4 gap-2 flex-row rounded-xl bg-gradient-to-tr from-purple-400 to-violet-200 nm-flat-violet-400-xs p-2  cursor-pointer"
+          >
+            <div className="flex justify-center items-center nm-flat-violet-400-xs rounded-full h-8 w-8">
+              <ComputerDesktopIcon className="h-6 w-6" />
+            </div>
+            Link to website
+          </a>
+        ) : null}
+        {project.githubLink ? (
+          <a
+            href={project.githubLink}
+            target="_blank"
+            className="flex items-center pr-4  gap-2 flex-row rounded-xl bg-gradient-to-tr from-purple-400 to-violet-200 nm-flat-violet-400-xs p-2  cursor-pointer"
+          >
+            <div className="flex justify-center items-center nm-flat-violet-400-xs rounded-full h-8 w-8">
+              <CommandLineIcon className="h-6 w-6" />
+            </div>
+            Github repository
+          </a>
+        ) : null}
+        {project.githubLink2 ? (
+          <a
+            href={project.githubLink2}
+            target="_blank"
+            className="flex items-center pr-4  gap-2 flex-row rounded-xl bg-gradient-to-tr from-purple-400 to-violet-200 nm-flat-violet-400-xs p-2  cursor-pointer"
+          >
+            <div className="flex justify-center items-center nm-flat-violet-400-xs rounded-full h-8 w-8">
+              <CommandLineIcon className="h-6 w-6" />
+            </div>
+            2nd Github repository
+          </a>
+        ) : null}
+      </div>
+    </div>
+  );
+};
+
+export default ProjectCard;

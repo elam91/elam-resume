@@ -6,7 +6,7 @@ const useGetPersonalInfo = () => {
     queryKey: ["personalInfo"],
     queryFn: async () => {
       const res = await django.personalInfo.personalInfoLatestRetrieve({});
-      console.log(res);
+
       return res.data;
     },
 
