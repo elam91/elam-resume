@@ -53,25 +53,35 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden  bg-transparent  font-poppins  bg-cover bg-center lg:bg-left  ">
-      <canvas
-        className="absolute hidden -left-1/2 lg:block -bottom-1/4 translate-x-1/2 -z-10"
-        id="firstBlob"
-      />
+    <div className="overflow-hidden  max-w-[100vw] bg-transparent  font-poppins">
+      <div
+        className="absolute top-0 right-0 left-0 bottom-0 h-screen w-screen -z-10"
+        id="blob container"
+      >
+        <div
+          className="min-h-screen max-h-screen min-w-screen max-w-full overflow-hidden w-full h-full relative -z-10 bg-transparent"
+          id="blob_container_relative"
+        >
+          <canvas
+            className="absolute bottom-[40%] -left-[150%]    lg:-left-1/2 lg:block lg:-bottom-1/4 lg:translate-x-1/2   -z-10"
+            id="firstBlob"
+          />
 
-      <canvas
-        className="absolute  bottom-1/4 scale-125 lg:scale-100 translate-y-1/2 right-1/4 translate-x-1/2 lg:translate-x-0 lg:translate-y-0   lg:-top-1/2   lg:left-[35%] -z-10"
-        id="secondBlob"
-      />
-      <canvas
-        className="absolute hidden  lg:-bottom-1/2 lg:-right-0  lg:block   -z-10"
-        id="thirdBlob"
-      />
+          <canvas
+            className="absolute max-w-full bottom-1/4 scale-150 lg:scale-100 translate-y-1/2 right-1/4 translate-x-1/2 lg:translate-x-0 lg:translate-y-0   lg:-top-1/2   lg:left-[35%] -z-10"
+            id="secondBlob"
+          />
+          <canvas
+            className="absolute hidden  lg:-bottom-1/2 lg:-right-0  lg:block   -z-10"
+            id="thirdBlob"
+          />
+        </div>
+      </div>
       <BrowserRouter>
         <Header />
         <Sidebar />
         <div className="overflow-y-hidden  h-full w-full">
-          <div className="px-1 lg:pr-10 lg:pl-96 pt-10 h-screen  w-full overflow-y-auto pb-32 lg:pb-20">
+          <div className="px-1 lg:pr-10 lg:pl-96 pt-4 lg:pt-10 h-screen  w-full overflow-y-auto pb-36 lg:pb-20">
             <Routes>
               <Route path="/" element={<Intro />} />
               <Route path="/skills" element={<Skills />} />
