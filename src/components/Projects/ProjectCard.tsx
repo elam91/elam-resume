@@ -18,7 +18,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           })}
         >
           <img
-            className="object-cover rounded-xl"
+            className="object-cover w-full rounded-t-nonexl h-full"
             src={
               project.image
                 ? project.image
