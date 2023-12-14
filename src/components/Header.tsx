@@ -75,7 +75,7 @@ const Header = () => {
                   to="projects"
                   className={({ isActive }) => {
                     return clsx({
-                      "block py-2 pr-4 pl-3  rounded  lg:bg-transparent lg:p-0 ":
+                      "block py-2 pr-4 pl-3  rounded  lg:bg-transparent lg:p-0 whitespace-nowrap ":
                         true,
                       "text-purple-700": isActive,
                       "text-black": !isActive,
