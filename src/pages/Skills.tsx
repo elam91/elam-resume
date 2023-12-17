@@ -5,11 +5,11 @@ const Skills = () => {
   const { data, isFetching } = useGetSkills();
 
   return (
-    <div className="grid grid-cols-3 w-full min-w-full flex-wrap justify-between gap-4 pb-5 ">
+    <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 w-full min-w-full flex-wrap justify-between gap-4 pb-5 ">
       {data.results?.map((skill: Skill) => (
         <div
           key={skill.id}
-          className=" px-4 col-span-3 lg:col-span-1  pb-6  text-ellipsis overflow-hidden  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500 min-h-full rounded-xl   max-w-none"
+          className=" px-4 col-span-3 lg:col-span-2 xl:col-span-1  pb-6  text-ellipsis overflow-hidden  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500 min-h-full rounded-xl   max-w-none"
         >
           <div className="w-full flex flex-row justify-between items-center h-20">
             <h2 className="text-lg text-black">{skill.name}</h2>

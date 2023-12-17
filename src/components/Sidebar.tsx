@@ -11,7 +11,7 @@ const Sidebar = () => {
     <aside
       id="sidebar"
       className={clsx({
-        "hidden lg:fixed w-96  top-0 left-0 z-10 lg:flex flex-col  text-base whitespace-nowrap items-center justify-center  h-screen min-h-screen overflow-hidden":
+        "hidden lg:fixed w-96 lg:mt-16  top-0 left-0 z-10 lg:flex flex-col  text-base whitespace-nowrap items-center justify-center  h-screen min-h-screen overflow-hidden":
           true,
       })}
     >

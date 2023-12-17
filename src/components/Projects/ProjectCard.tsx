@@ -9,7 +9,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <div
       key={project.id}
-      className="flex flex-col min-h-0 col-span-3 lg:col-span-1  justify-between px-0  pb-6  text-ellipsis overflow-hidden  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500 rounded-xl   max-w-none"
+      className="flex flex-col min-h-0 col-span-3 lg:col-span-2 xl:col-span-1  justify-between px-0  pb-6  text-ellipsis overflow-hidden  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500 rounded-xl   max-w-none"
     >
       <div>
         <div
@@ -31,13 +31,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
           <h2 className="text-xl text-black">{project.name}</h2>
 
           <div
-            className=" prose text-gray-800 !font-light prose-p:text-xs prose-li:text-xs prose-pi:font-light prose-li:font-light prose-headings:font-extralight  prose-li:marker:text-black"
+            className=" prose text-gray-800 !font-light prose-p:text-xs text-sm lg:text-xs xl:text-sm prose-li:text-xs prose-pi:font-light prose-li:font-light prose-headings:font-extralight  prose-li:marker:text-black"
             dangerouslySetInnerHTML={{ __html: project.description || "" }}
           ></div>
         </div>
       </div>
       <div
-        className="w-full flex gap-x-2 text-xs h-16 font-light p-2 px-4  flex-row mt-10"
+        className="w-full flex flex-wrap xl:flex-nowrap 2xl:flex-wrap gap-x-2 text-xs flex-shrink font-light p-2 px-4 gap-y-2 justify-center  flex-row mt-10"
         id="buttonGroup"
       >
         {project.websiteLink ? (
