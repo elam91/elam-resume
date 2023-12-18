@@ -4,7 +4,7 @@ import useGetLongDescription from "../apiHooks/useGetLongDescription";
 const Intro = () => {
   const { data, isFetching } = useGetLongDescription({ page: PageEnum.INTRO });
   return (
-    <div className="w-full h-full  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500 min-h-full rounded-xl flex flex-col">
+    <div className="w-full h-full relative bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500 min-h-full rounded-xl flex flex-col">
       {isFetching || !data ? (
         <div className="animate-pulse w-full h-full flex justify-center mt-10">
           <p className="text-5xl ">Loading...</p>
@@ -15,7 +15,7 @@ const Intro = () => {
             className="p-5 prose text-gray-800 lg:prose-xl font-light prose-headings:font-extralight prose-li:marker:text-black  max-w-none"
             dangerouslySetInnerHTML={{ __html: data?.body || "" }}
           ></div>
-          <div className="w-full flex flex-row justify-end px-20">
+          <div className="w-full flex flex-row justify-end px-20 absolute lg:relative -bottom-10 pb-0 items-end">
             <svg
               width="2310"
               height="1168"
