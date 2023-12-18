@@ -79,7 +79,7 @@ function App() {
       </div>
       <BrowserRouter>
         <Header />
-        <Sidebar />
+        <Sidebar asPage={false} />
         <div className="overflow-y-hidden  h-full w-full">
           <div className="px-1 lg:pr-10 lg:pl-96 pt-4 lg:pt-10 h-screen  w-full overflow-y-auto pb-36 lg:pb-20">
             <Routes>
@@ -87,6 +87,7 @@ function App() {
               <Route path="/skills" element={<Skills />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/experience" element={<Experience />} />
+              <Route path="/contact" element={<Sidebar asPage={true} />} />
             </Routes>
           </div>
         </div>

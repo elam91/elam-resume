@@ -4,18 +4,25 @@ import { differenceInYears, format } from "date-fns";
 import useGetSocials from "../apiHooks/useGetSocials";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 
-const Sidebar = () => {
+const Sidebar = ({ asPage }: { asPage?: boolean }) => {
   const { data, isFetching } = useGetPersonalInfo();
   const { data: socialsData, isFetching: socialsIsFetching } = useGetSocials();
   return (
     <aside
       id="sidebar"
       className={clsx({
-        "hidden lg:fixed w-96 lg:mt-16  top-0 left-0 z-10 lg:flex flex-col  text-base whitespace-nowrap items-center justify-center  h-screen min-h-screen overflow-hidden":
+        " w-96 lg:mt-16  top-0 left-0 z-10  flex-col  text-base whitespace-nowrap items-center min-h-screen overflow-hidden":
           true,
+        "hidden lg:fixed lg:flex h-screen justify-center ": !asPage,
+        "flex top-1/2 right-1/2 w-full h-full justify-start": asPage,
       })}
     >
-      <div className="py-32  px-10  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-500  rounded-xl flex flex-col justify-start items-center gap-y-10">
+      <div
+        className={clsx(
+          " px-10  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-500  rounded-xl flex flex-col justify-start items-center gap-y-10",
+          asPage ? "pb-24 pt-10" : "flex-grow-0 py-32"
+        )}
+      >
         <div className="flex flex-col items-center">
           <h1 className="text-5xl font-extralight">{`${data.firstName} ${data.lastName}`}</h1>
           <h2 className="text-base">{data.title}</h2>
