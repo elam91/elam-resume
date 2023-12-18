@@ -11,9 +11,9 @@ const Sidebar = ({ asPage }: { asPage?: boolean }) => {
     <aside
       id="sidebar"
       className={clsx({
-        " w-96 lg:mt-16  top-0 left-0 z-10  flex-col  text-base whitespace-nowrap items-center min-h-screen overflow-hidden":
+        " w-96 lg:mt-16  top-0 left-0 z-10  flex-col  text-base whitespace-nowrap items-center min-h-[100dvh] overflow-hidden":
           true,
-        "hidden lg:fixed lg:flex h-screen justify-center ": !asPage,
+        "hidden lg:fixed lg:flex h-[100dvh] justify-center ": !asPage,
         "flex top-1/2 right-1/2 w-full h-full justify-start": asPage,
       })}
     >

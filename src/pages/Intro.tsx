@@ -15,7 +15,7 @@ const Intro = () => {
             className="p-5 prose text-gray-800 lg:prose-xl font-light prose-headings:font-extralight prose-li:marker:text-black  max-w-none"
             dangerouslySetInnerHTML={{ __html: data?.body || "" }}
           ></div>
-          <div className="w-full flex flex-row justify-end px-10">
+          <div className="w-full flex flex-row justify-end px-20">
             <svg
               width="2310"
               height="1168"

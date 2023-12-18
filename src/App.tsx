@@ -55,11 +55,11 @@ function App() {
   return (
     <div className="overflow-hidden  max-w-[100vw] bg-transparent  font-poppins">
       <div
-        className="absolute top-0 right-0 left-0 bottom-0 h-screen w-screen -z-10"
+        className="absolute top-0 right-0 left-0 bottom-0 h-[100dvh] w-screen -z-10"
         id="blob container"
       >
         <div
-          className="min-h-screen max-h-screen min-w-screen max-w-full overflow-hidden w-full h-full relative -z-10 bg-transparent"
+          className="min-h-[100dvh] max-h-[100dvh] min-w-screen max-w-full overflow-hidden w-full h-full relative -z-10 bg-transparent"
           id="blob_container_relative"
         >
           <canvas
@@ -81,7 +81,7 @@ function App() {
         <Header />
         <Sidebar asPage={false} />
         <div className="overflow-y-hidden  h-full w-full">
-          <div className="px-1 lg:pr-10 lg:pl-96 pt-4 lg:pt-10 h-screen  w-full overflow-y-auto pb-36 lg:pb-20">
+          <div className="px-1 lg:pr-10 lg:pl-96 pt-4 lg:pt-10 h-[100dvh]  w-full overflow-y-auto pb-36 lg:pb-20">
             <Routes>
               <Route path="/" element={<Intro />} />
               <Route path="/skills" element={<Skills />} />
