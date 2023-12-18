@@ -12,14 +12,14 @@ const Intro = () => {
       ) : (
         <div>
           <div
-            className="p-5 prose text-gray-800 lg:prose-xl font-light prose-headings:font-extralight prose-li:marker:text-black  max-w-none"
+            className="p-5  prose text-gray-800 lg:prose-xl font-light prose-headings:font-extralight prose-li:marker:text-black  max-w-none"
             dangerouslySetInnerHTML={{ __html: data?.body || "" }}
           ></div>
-          <div className="w-full flex flex-row justify-end px-20 absolute lg:relative -bottom-10 pb-0 items-end">
+          <div className="w-full  flex-row justify-end hidden lg:flex  lg:relative lg:px-20 items-end lg:items-end h-12 lg:h-56">
             <svg
               width="2310"
               height="1168"
-              className="h-52 w-96 aspect-auto animate-signSvg"
+              className="h-full w-min aspect-auto animate-signSvg"
               style={{ strokeDasharray: 14700 }}
               viewBox="0 0 2310 1168"
               fill="none"

@@ -20,7 +20,7 @@ const Experience = () => {
         id="work_container"
         className={clsx(
           "grid grid-cols-4 bg-white p-4   max-h-full  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500  rounded-xl",
-          isFetching ? "min-h-[70vh]" : ""
+          isFetching ? "min-h-[d70vh]" : ""
         )}
       >
         <div className="col-span-4 lg:col-span-1 font-light text-xl mb-5 lg:mb-0">

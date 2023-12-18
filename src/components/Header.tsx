@@ -29,7 +29,7 @@ const Header = () => {
                   to="/"
                   className={({ isActive }) => {
                     return clsx({
-                      "block py-2 pr-4 pl-3  rounded  lg:bg-transparent lg:p-0 ":
+                      "block py-2 px-2  sm:px-4  rounded  lg:bg-transparent lg:p-0 ":
                         true,
                       "text-myPurple-800": isActive,
                       "text-black": !isActive,
@@ -45,7 +45,7 @@ const Header = () => {
                   to="experience"
                   className={({ isActive }) => {
                     return clsx({
-                      "block py-2 pr-4 pl-3  rounded  lg:bg-transparent lg:p-0 ":
+                      "block py-2 px-2 sm:px-4  rounded  lg:bg-transparent lg:p-0 ":
                         true,
                       "text-myPurple-800": isActive,
                       "text-black": !isActive,
@@ -60,7 +60,7 @@ const Header = () => {
                   to="/skills"
                   className={({ isActive }) => {
                     return clsx({
-                      "block py-2 pr-4 pl-3  rounded  lg:bg-transparent lg:p-0 ":
+                      "block py-2  px-2 sm:px-4  rounded  lg:bg-transparent lg:p-0 ":
                         true,
                       "text-myPurple-800": isActive,
                       "text-black": !isActive,
@@ -75,7 +75,7 @@ const Header = () => {
                   to="projects"
                   className={({ isActive }) => {
                     return clsx({
-                      "block py-2 pr-4 pl-3  rounded  lg:bg-transparent lg:p-0 whitespace-nowrap ":
+                      "block py-2   px-2 sm:px-4   rounded  lg:bg-transparent lg:p-0 whitespace-nowrap":
                         true,
                       "text-myPurple-800": isActive,
                       "text-black": !isActive,
@@ -90,7 +90,7 @@ const Header = () => {
                   to="contact"
                   className={({ isActive }) => {
                     return clsx({
-                      "block py-2 pr-4 pl-3  rounded lg:hidden": true,
+                      "block py-2 px-2 sm:px-4 rounded lg:hidden": true,
                       "text-myPurple-800": isActive,
                       "text-black": !isActive,
                     });
