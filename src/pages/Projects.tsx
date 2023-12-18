@@ -10,7 +10,7 @@ const Projects = () => {
   return (
     <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 w-full min-w-full  justify-between gap-4 pb-5">
       {isFetching || !data?.results
-        ? range(4).map((skelProject) => <ProjectSkeleton />)
+        ? range(4).map((skelProject) => <ProjectSkeleton key={skelProject} />)
         : data.results?.map((project: Project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
