@@ -9,6 +9,7 @@ import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import DrawBlob from "blob-animated";
 import { useEffect, useRef } from "react";
+import Contact from "./pages/Contact";
 
 function App() {
   useEffect(() => {
@@ -87,7 +88,7 @@ function App() {
               <Route path="/skills" element={<Skills />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/experience" element={<Experience />} />
-              <Route path="/contact" element={<Sidebar asPage={true} />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </div>
         </div>
