@@ -14,11 +14,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <div>
         <div
           className={clsx({
-            "flex  items-start w-full overflow-hidden h-[200px]": true,
+            "flex  items-start w-full overflow-hidden h-[180px]": true,
           })}
         >
           <img
-            className="object-cover w-full rounded-t-xl "
+            className="object-cover h-full w-full rounded-t-xl "
             src={
               project.image
                 ? project.image
@@ -37,7 +37,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
       </div>
       <div
-        className="w-full flex flex-wrap xl:flex-nowrap 2xl:flex-wrap gap-x-2 text-xs flex-shrink font-light p-2 px-4 gap-y-2 justify-center  flex-row mt-10"
+        className="w-full flex flex-wrap min-w-full max-w-max gap-x-2 text-xs flex-shrink font-light p-2 px-4 gap-y-2 justify-center  flex-row mt-10"
         id="buttonGroup"
       >
         {project.websiteLink ? (
@@ -49,7 +49,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             <div className="flex justify-center items-center nm-flat-violet-400-xs rounded-full h-8 w-8">
               <ComputerDesktopIcon className="h-6 w-6" />
             </div>
-            Link to website
+            Website
           </a>
         ) : null}
         {project.githubLink ? (
