@@ -61,7 +61,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             <div className="flex justify-center items-center nm-flat-violet-400-xs rounded-full h-8 w-8">
               <CommandLineIcon className="h-6 w-6" />
             </div>
-            Github repository
+            Github
           </a>
         ) : null}
         {project.githubLink2 ? (
@@ -73,7 +73,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             <div className="flex justify-center items-center nm-flat-violet-400-xs rounded-full h-8 w-8">
               <CommandLineIcon className="h-6 w-6" />
             </div>
-            2nd Github repository
+            2nd Github
           </a>
         ) : null}
       </div>

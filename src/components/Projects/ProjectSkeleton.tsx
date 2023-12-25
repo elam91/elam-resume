@@ -48,9 +48,7 @@ const ProjectSkeleton = () => {
           className="flex items-center  pr-4 gap-2 flex-row rounded-xl bg-gray-200 text-gray-200 p-2  cursor-pointer"
         >
           <div className="flex justify-center items-center bg-gray-300 rounded-full h-8 w-8"></div>
-          <div className="bg-gray-300 text-gray-300 rounded-lg">
-            Github repository
-          </div>
+          <div className="bg-gray-300 text-gray-300 rounded-lg">Github</div>
         </a>
 
         <a
@@ -58,9 +56,7 @@ const ProjectSkeleton = () => {
           className="flex items-center  pr-4 gap-2 flex-row rounded-xl bg-gray-200 text-gray-200 p-2  cursor-pointer"
         >
           <div className="flex justify-center items-center bg-gray-300 rounded-full h-8 w-8"></div>
-          <div className="bg-gray-300 text-gray-300 rounded-lg">
-            2nd Github repository
-          </div>
+          <div className="bg-gray-300 text-gray-300 rounded-lg">2nd Github</div>
         </a>
       </div>
     </div>
