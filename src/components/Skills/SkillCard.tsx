@@ -2,7 +2,7 @@ import { Skill } from "../../apiClient/django/Api";
 
 const SkillsCard = ({ skill }: { skill: Skill }) => {
   return (
-    <div className=" px-4 col-span-3 lg:col-span-2 xl:col-span-1  pb-6  text-ellipsis overflow-hidden  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500 min-h-full rounded-xl   max-w-none">
+    <div className=" px-4 col-span-3 lg:col-span-2 xl:col-span-1  pb-6  text-ellipsis overflow-hidden  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40  min-h-full rounded-xl   max-w-none">
       <div className="w-full flex flex-row justify-between items-center h-20">
         <h2 className="text-lg text-black">{skill.name}</h2>
         <img

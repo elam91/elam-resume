@@ -3,7 +3,7 @@ import range from "lodash.range";
 
 const ProjectSkeleton = () => {
   return (
-    <div className="animate-pulse h-[41rem] flex flex-col min-h-0 col-span-3 lg:col-span-2 xl:col-span-1  justify-between px-0  pb-6  text-ellipsis overflow-hidden  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500 rounded-xl   max-w-none">
+    <div className="animate-pulse h-[41rem] flex flex-col min-h-0 col-span-3 lg:col-span-2 xl:col-span-1  justify-between px-0  pb-6  text-ellipsis overflow-hidden  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40  rounded-xl   max-w-none">
       <div>
         <div
           className={clsx({

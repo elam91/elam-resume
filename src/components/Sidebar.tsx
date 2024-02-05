@@ -19,8 +19,10 @@ const Sidebar = ({ asPage }: { asPage?: boolean }) => {
     >
       <div
         className={clsx(
-          " px-10  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-500  rounded-xl flex flex-col justify-start items-center gap-y-10",
-          asPage ? "pb-24 pt-10" : "flex-grow-0 py-32"
+          " px-10 bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 rounded-xl flex flex-col justify-start items-center gap-y-10",
+          asPage
+            ? "pb-24 pt-10"
+            : "flex-grow-0 py-10 -mt-5  h-full rounded-none"
         )}
       >
         <div className="flex flex-col items-center">

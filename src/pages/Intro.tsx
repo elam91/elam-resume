@@ -5,7 +5,7 @@ import Signature from "../components/Signature";
 const Intro = () => {
   const { data, isFetching } = useGetLongDescription({ page: PageEnum.INTRO });
   return (
-    <div className="min-h-full max-h-none w-full relative bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500 rounded-xl flex flex-col justify-start">
+    <div className="min-h-full max-h-none w-full relative bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40  rounded-xl flex flex-col justify-start">
       {!data ? (
         <div className="animate-pulse w-full h-full flex justify-center mt-10">
           <p className="text-5xl ">Loading...</p>

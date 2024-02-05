@@ -19,7 +19,7 @@ const Experience = () => {
       <div
         id="work_container"
         className={clsx(
-          "grid grid-cols-4 bg-white p-4   max-h-full  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40 border border-gray-500  rounded-xl",
+          "grid grid-cols-4 bg-white p-4   max-h-full  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40   rounded-xl",
           isFetching ? "min-h-[d70vh]" : ""
         )}
       >
@@ -81,7 +81,7 @@ const Experience = () => {
       </div>
       <div
         id="education_container"
-        className="grid grid-cols-4 bg-white p-4  bg-clip-padding backdrop-filter backdrop-blur-lg  bg-opacity-40 border border-gray-500  rounded-xl"
+        className="grid grid-cols-4 bg-white p-4  bg-clip-padding backdrop-filter backdrop-blur-lg  bg-opacity-40   rounded-xl"
       >
         <div className="col-span-4 lg:col-span-1 font-light text-xl">
           Education
