@@ -5,7 +5,7 @@ const ProjectSkeleton = () => {
   return (
     <div className="animate-pulse h-[41rem] flex flex-col min-h-0 col-span-3 lg:col-span-2 xl:col-span-1  justify-between px-0  pb-6  text-ellipsis overflow-hidden  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40  rounded-xl   max-w-none">
       <div>
-        <div
+       <div
           className={clsx({
             "flex  items-start w-full overflow-hidden h-[200px] bg-gray-200":
               true,
