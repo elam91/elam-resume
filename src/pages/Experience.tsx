@@ -63,7 +63,9 @@ const Experience = () => {
                       }  `}
                     </p>
                     <p className="xl font-bold text-slate-600">·</p>
-                    <p>{`${yearDiff} yrs ${monthDiff} mos`}</p>
+                    <p>{`${yearDiff ? `${yearDiff} yrs` : ""}  ${
+                      monthDiff ? `${monthDiff} mos` : ""
+                    }`}</p>
                   </div>
                   {workEntry.description ? (
                     <div
@@ -99,15 +101,7 @@ const Experience = () => {
                   ) : null}
                   {educationEntry.organizationName}
                 </p>
-                <div className="flex flex-row gap-x-2 text-slate-800">
-                  <p>
-                    {`${format(new Date(educationEntry.startDate), "y")} - ${
-                      educationEntry.endDate
-                        ? format(new Date(educationEntry.endDate), "y")
-                        : "Present"
-                    }  `}
-                  </p>
-                </div>
+                <div className="flex flex-row gap-x-2 text-slate-800"></div>
               </div>
             );
           })}
