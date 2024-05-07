@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import { Link, NavLink } from "react-router-dom";
+import StaticPDF from "../assets/Elam Buteil - Software Developer.pdf";
+import { format } from "date-fns";
 
 const Header = () => {
   return (
@@ -12,12 +14,25 @@ const Header = () => {
             </span>
           </Link>
           <div className="flex items-center lg:order-2">
-            <Link
-              to={`${import.meta.env.VITE_API_URL}export/`}
-              className="text-white bg-gradient-to-bl from-myPurple-100 to-myPurple-800 hover:bg-myPurple-100 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none "
-            >
-              Download to PDF
-            </Link>
+            {import.meta.env.VITE_SAVER_MODE ? (
+              <a
+                href={StaticPDF}
+                download={`Elam Buteil - Software Developer - ${format(
+                  new Date(),
+                  "MMMM do y"
+                )}`}
+                className="text-white bg-gradient-to-bl from-myPurple-100 to-myPurple-800 hover:bg-myPurple-100 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none "
+              >
+                Download to PDF
+              </a>
+            ) : (
+              <Link
+                to={`${import.meta.env.VITE_API_URL}export/`}
+                className="text-white bg-gradient-to-bl from-myPurple-100 to-myPurple-800 hover:bg-myPurple-100 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none "
+              >
+                Download to PDF
+              </Link>
+            )}
           </div>
           <div
             className="justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
