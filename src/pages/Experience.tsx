@@ -1,5 +1,6 @@
 import {
   addYears,
+  differenceInCalendarMonths,
   differenceInMonths,
   differenceInYears,
   format,
@@ -38,7 +39,7 @@ const Experience = () => {
                 new Date(workEntry.startDate)
               );
 
-              const monthDiff = differenceInMonths(
+              const monthDiff = differenceInCalendarMonths(
                 workEntry.endDate ? new Date(workEntry.endDate) : new Date(),
                 addYears(new Date(workEntry.startDate), yearDiff)
               );
