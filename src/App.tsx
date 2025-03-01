@@ -8,11 +8,28 @@ import Intro from "./pages/Intro";
 import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import DrawBlob from "blob-animated";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Contact from "./pages/Contact";
 
+const BLOB_COLOR_LIGHT_PURPLE = "#ce9eff";
+const BLOB_COLOR_DARK_PURPLE = "#8F00FF";
+
+const BLOB_COLOR_LIGHT_BLUE = "#B8DBF4";
+const BLOB_COLOR_DARK_BLUE = "#71B7EA";
+
 function App() {
+  const [width, setWidth] = useState(window?.innerWidth);
+  const handleWindowChange = (e: any) => {
+    setWidth(e.target.innerWidth);
+  };
+
   useEffect(() => {
+    const isMobile = width <= 768;
+    const lightColor = isMobile
+      ? BLOB_COLOR_LIGHT_BLUE
+      : BLOB_COLOR_LIGHT_PURPLE;
+    const darkColor = isMobile ? BLOB_COLOR_DARK_BLUE : BLOB_COLOR_DARK_PURPLE;
+
     const firstBlob = new DrawBlob({
       canvas: document.getElementById("firstBlob"),
       speed: 400,
@@ -20,8 +37,8 @@ function App() {
 
       colorFunction: (ctx) => {
         const grd = ctx.createLinearGradient(150, 10, 0, 220);
-        grd.addColorStop(0, "#ce9eff");
-        grd.addColorStop(1, "#8F00FF");
+        grd.addColorStop(0, lightColor);
+        grd.addColorStop(1, darkColor);
         return grd;
       },
     });
@@ -33,8 +50,8 @@ function App() {
 
       colorFunction: (ctx) => {
         const grd = ctx.createLinearGradient(200, 15, 0, 220);
-        grd.addColorStop(0, "#ce9eff");
-        grd.addColorStop(1, "#8F00FF");
+        grd.addColorStop(0, lightColor);
+        grd.addColorStop(1, darkColor);
         return grd;
       },
     });
@@ -46,11 +63,18 @@ function App() {
 
       colorFunction: (ctx) => {
         const grd = ctx.createLinearGradient(550, 2, 0, 220);
-        grd.addColorStop(1, "#ce9eff");
-        grd.addColorStop(0, "#8F00FF");
+        grd.addColorStop(1, lightColor);
+        grd.addColorStop(0, darkColor);
         return grd;
       },
     });
+  }, [width]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowChange);
+    };
   }, []);
 
   return (
