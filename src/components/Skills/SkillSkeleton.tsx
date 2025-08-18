@@ -2,20 +2,17 @@ import range from "lodash.range";
 
 const SkillSkeleton = () => {
   return (
-    <div className="animate-pulse px-4 col-span-3 lg:col-span-2 xl:col-span-1  pb-6  text-ellipsis overflow-hidden  bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40  min-h-full rounded-xl   max-w-none">
-      <div className="w-full flex flex-row justify-between items-center h-20">
-        <h2 className="text-lg text-gray-200 bg-gray-200 rounded-xl">
+    <div className="col-span-3 min-h-full max-w-none animate-pulse overflow-hidden text-ellipsis rounded-xl bg-white bg-opacity-40 bg-clip-padding px-4 pb-6 backdrop-blur-lg backdrop-filter lg:col-span-2 xl:col-span-1">
+      <div className="flex h-20 w-full flex-row items-center justify-between">
+        <h2 className="rounded-xl bg-gray-200 text-lg text-black">
           dfgdfgdfdfdf! dff{" "}
         </h2>
-        <div className="rounded-2xl w-14 text-gray-200 bg-gray-200">dddd</div>
+        <div className="w-14 rounded-2xl bg-gray-200 text-black">dddd</div>
       </div>
 
-      <div className=" prose  rounded-xl !font-light prose-p:text-xs prose-li:text-xs prose-pi:font-light prose-li:font-light prose-headings:font-extralight  prose-li:marker:text-black">
+      <div className="prose-pi:font-light prose rounded-xl !font-light prose-headings:font-extralight prose-p:text-xs prose-li:text-xs prose-li:font-light prose-li:marker:text-black">
         {range(5).map((skeletonText) => (
-          <p
-            key={skeletonText}
-            className="bg-gray-200 text-gray-200 rounded-xl"
-          >
+          <p key={skeletonText} className="rounded-xl bg-gray-200 text-black">
             Bla bla bla bla bla
           </p>
         ))}

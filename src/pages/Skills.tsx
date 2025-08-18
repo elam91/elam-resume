@@ -8,7 +8,7 @@ const Skills = () => {
   const { data, isFetching } = useGetSkills();
 
   return (
-    <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 w-full min-w-full flex-wrap justify-between gap-4 pb-5 transition-transform ">
+    <div className="grid w-full min-w-full grid-cols-3 flex-wrap justify-between gap-4 pb-5 transition-transform lg:grid-cols-4 xl:grid-cols-3">
       {!data.results || isFetching
         ? range(9).map((skeletonSkill) => <SkillSkeleton key={skeletonSkill} />)
         : data.results?.map((skill: Skill) => (

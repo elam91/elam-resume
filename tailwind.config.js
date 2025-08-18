@@ -20,9 +20,18 @@ module.exports = {
             "stroke-dashoffset": 0,
           },
         },
+        "bg-scroll": {
+          "0%": {
+            "background-position": "center -1000%",
+          },
+          "100%": {
+            "background-position": "center 0%",
+          },
+        },
       },
       animation: {
         signSvg: "signSvg 7s linear",
+        "bg-scroll": "bg-scroll 360s linear infinite;",
       },
     },
   },

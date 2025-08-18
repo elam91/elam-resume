@@ -1,27 +1,30 @@
 import { PageEnum } from "../apiClient/django/Api";
 import useGetLongDescription from "../apiHooks/useGetLongDescription";
+import GlassCard from "../components/glass-card/glass-card";
 import Signature from "../components/Signature";
 
 const Intro = () => {
   const { data, isFetching } = useGetLongDescription({ page: PageEnum.INTRO });
   return (
-    <div className="min-h-full max-h-none w-full relative bg-white  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40  rounded-xl flex flex-col justify-start">
-      {!data ? (
-        <div className="animate-pulse w-full h-full flex justify-center mt-10">
-          <p className="text-5xl ">Loading...</p>
-        </div>
-      ) : (
-        <div className="flex flex-col h-full">
-          <div
-            className="p-5 min-h-max  prose lg:prose-sm prose-base xl:prose-base text-gray-800  font-light prose-headings:font-extralight prose-li:marker:text-black  max-w-none"
-            dangerouslySetInnerHTML={{ __html: data?.body || "" }}
-          ></div>
-          <div className="w-full md:flex flex-row justify-end hidden  p-0 pb-4 pr-4 h-44 items-end">
-            <Signature />
+    <GlassCard>
+      <div className="relative z-10 flex max-h-none min-h-full w-full flex-col justify-start">
+        {!data ? (
+          <div className="mt-10 flex h-full w-full animate-pulse justify-center">
+            <p className="text-5xl">Loading...</p>
           </div>
-        </div>
-      )}
-    </div>
+        ) : (
+          <div className="z-10 flex h-full flex-col">
+            <div
+              className="prose prose-base min-h-max max-w-none p-5 font-light text-black lg:prose-sm xl:prose-base prose-headings:font-extralight prose-li:marker:text-black"
+              dangerouslySetInnerHTML={{ __html: data?.body || "" }}
+            ></div>
+            <div className="hidden h-44 w-full flex-row items-end justify-end p-0 pb-4 pr-4 md:flex">
+              <Signature />
+            </div>
+          </div>
+        )}
+      </div>
+    </GlassCard>
   );
 };
 
