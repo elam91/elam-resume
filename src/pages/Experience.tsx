@@ -23,7 +23,7 @@ const Experience = () => {
           id="work_container"
           className={clsx(
             "z-10 grid max-h-full grid-cols-4 rounded-xl p-4",
-            isFetching ? "min-h-[d70vh]" : "",
+            isFetching ? "min-h-[d70vh] w-full" : "",
           )}
         >
           <div className="col-span-4 mb-5 text-xl font-light lg:col-span-1 lg:mb-0">
@@ -50,10 +50,10 @@ const Experience = () => {
                     className="border-t pt-2 first:border-0 first:pt-0"
                     key={workEntry.id}
                   >
-                    <h2 className="text-xl font-light">
+                    <h2 className="text-xl font-medium">
                       {workEntry.titleName}
                     </h2>
-                    <p className="flex flex-row items-center gap-x-2 font-light">
+                    <p className="flex flex-row items-center gap-x-2 font-normal">
                       {workEntry.image ? (
                         <img className="h-8 w-8" src={workEntry.image}></img>
                       ) : null}
