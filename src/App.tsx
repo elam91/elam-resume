@@ -17,7 +17,7 @@ function App() {
         <Header />
         <Sidebar asPage={false} />
         <div className="h-full w-full overflow-y-hidden bg-yellow-50/20 md:w-10/12">
-          <div className="h-[100dvh] w-full overflow-y-auto px-1 pb-36 pt-4 lg:pb-20 lg:pl-96 lg:pr-10 lg:pt-10">
+          <div className="h-[100dvh] w-full overflow-y-auto px-1 pb-36 pt-4 lg:pb-20 lg:pl-[400px] lg:pr-10 lg:pt-10">
             <Routes>
               <Route path="/" element={<Intro />} />
               <Route path="/skills" element={<Skills />} />

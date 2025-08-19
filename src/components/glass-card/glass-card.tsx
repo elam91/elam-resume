@@ -11,7 +11,9 @@ const GlassCard = ({ children, className }: Props) => {
   return (
     <div className={twMerge("relative h-full", className)}>
       <div
-        style={isSafari ? { backdropFilter: "blur(2px) grayscale(0.4)" } : {}}
+        style={
+          isSafari ? { backdropFilter: "blur(2px) grayscale(0.4)" } : undefined
+        }
         className={twMerge("glassContainer h-full w-full", className)}
       >
         {children}
