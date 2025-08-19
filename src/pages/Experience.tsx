@@ -34,7 +34,9 @@ const Experience = () => {
         <div className="col-span-4 flex w-full flex-col items-start justify-start gap-y-4 font-light">
           {isFetching || !data ? (
             <div className="animate-bounce">
-              <p className="text-2xl">Loading...</p>
+              <GlassCard>
+                <p className="p-4 text-2xl">Loading...</p>
+              </GlassCard>
             </div>
           ) : (
             data.workData?.map((workEntry) => {
@@ -96,42 +98,44 @@ const Experience = () => {
         </div>
       </div>
 
-      <div
-        id="education_container"
-        className="z-10 grid w-full grid-cols-4 bg-clip-padding"
-      >
-        <div className="col-span-4 flex flex-col justify-start">
-          <div className="col-span-4 mb-5 w-full text-xl font-light md:col-span-1 md:w-fit">
+      {!isFetching && !!data?.educationData?.length ? (
+        <div
+          id="education_container"
+          className="z-10 grid w-full grid-cols-4 bg-clip-padding"
+        >
+          <div className="col-span-4 flex flex-col justify-start">
+            <div className="col-span-4 mb-5 w-full text-xl font-light md:col-span-1 md:w-fit">
+              <GlassCard>
+                <p className="px-6 py-4 text-left">Education</p>
+              </GlassCard>
+            </div>
+
             <GlassCard>
-              <p className="px-6 py-4 text-left">Education</p>
+              <div className="col-span-4 flex flex-1 flex-col items-start justify-start px-6 py-4 font-light">
+                {data.educationData?.map((educationEntry) => {
+                  return (
+                    <div key={educationEntry.id}>
+                      <h2 className="text-xl font-light">
+                        {educationEntry.titleName}
+                      </h2>
+                      <p className="flex flex-row items-center gap-x-2 font-light">
+                        {educationEntry.image ? (
+                          <img
+                            className="h-8 w-8"
+                            src={educationEntry.image}
+                          ></img>
+                        ) : null}
+                        {educationEntry.organizationName}
+                      </p>
+                      <div className="flex flex-row gap-x-2 text-black"></div>
+                    </div>
+                  );
+                })}
+              </div>
             </GlassCard>
           </div>
-
-          <GlassCard>
-            <div className="col-span-4 flex flex-1 flex-col items-start justify-start px-6 py-4 font-light">
-              {data.educationData?.map((educationEntry) => {
-                return (
-                  <div key={educationEntry.id}>
-                    <h2 className="text-xl font-light">
-                      {educationEntry.titleName}
-                    </h2>
-                    <p className="flex flex-row items-center gap-x-2 font-light">
-                      {educationEntry.image ? (
-                        <img
-                          className="h-8 w-8"
-                          src={educationEntry.image}
-                        ></img>
-                      ) : null}
-                      {educationEntry.organizationName}
-                    </p>
-                    <div className="flex flex-row gap-x-2 text-black"></div>
-                  </div>
-                );
-              })}
-            </div>
-          </GlassCard>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 };
