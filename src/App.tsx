@@ -12,7 +12,7 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <div className="animate-bg-scroll bg-size-[400px] max-w-[100vw] justify-start gap-4 overflow-hidden bg-white bg-[url(./assets/background.jpg)] bg-[length:400px_200px] bg-center bg-repeat font-poppins prose-p:text-black">
+    <div className="bg-size-[400px] max-w-[100vw] animate-bg-scroll justify-start gap-4 overflow-hidden bg-white bg-[url(./assets/background.jpg)] bg-[length:400px_200px] bg-center bg-repeat font-poppins prose-p:text-black">
       <BrowserRouter>
         <Header />
         <Sidebar asPage={false} />
@@ -28,7 +28,7 @@ function App() {
           </div>
         </div>
       </BrowserRouter>
-      <div className="absolute bottom-1 left-1 z-10">
+      <div className="invisible bottom-1 left-1 z-10 md:visible md:absolute">
         <a
           target="_blank"
           className="bg-white/40 text-xs text-blue-900 underline"
