@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
-
+import { isSafari } from "react-device-detect";
 import "./glass-card.css";
 
 interface Props extends PropsWithChildren {
@@ -10,7 +10,10 @@ interface Props extends PropsWithChildren {
 const GlassCard = ({ children, className }: Props) => {
   return (
     <div className={twMerge("relative h-full", className)}>
-      <div className={twMerge("glassContainer h-full w-full", className)}>
+      <div
+        style={isSafari ? { backdropFilter: "blur(2px) grayscale(0.4)" } : {}}
+        className={twMerge("glassContainer h-full w-full", className)}
+      >
         {children}
       </div>
 

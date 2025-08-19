@@ -47,7 +47,7 @@ const Experience = () => {
                 );
                 return (
                   <div
-                    className="border-t pt-2 first:border-0 first:pt-0"
+                    className="border-t border-slate-400 pt-2 first:border-0 first:pt-0"
                     key={workEntry.id}
                   >
                     <h2 className="text-xl font-medium">
@@ -59,7 +59,7 @@ const Experience = () => {
                       ) : null}
                       {workEntry.organizationName}
                     </p>
-                    <div className="flex flex-row gap-x-2 text-black">
+                    <div className="flex flex-row gap-x-2 border-b border-slate-400 pb-2 text-black">
                       <p>
                         {`${format(new Date(workEntry.startDate), "MMMM y")} - ${
                           workEntry.endDate
@@ -67,7 +67,9 @@ const Experience = () => {
                             : "Present"
                         }  `}
                       </p>
-                      <p className="xl font-bold text-black">·</p>
+                      {yearDiff || monthDiff ? (
+                        <p className="xl font-bold text-black">·</p>
+                      ) : null}
                       <p>{`${yearDiff ? `${yearDiff} yrs` : ""}  ${
                         monthDiff ? `${monthDiff} mos` : ""
                       }`}</p>
