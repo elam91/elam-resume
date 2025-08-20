@@ -12,12 +12,12 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <div className="bg-size-[400px] max-w-[100vw] animate-bg-scroll justify-start gap-4 overflow-hidden bg-white bg-[url(./assets/background.jpg)] bg-[length:400px_200px] bg-center bg-repeat font-poppins prose-p:text-black">
+    <div className="bg-size-[400px] scrollbar-hide scroll max-w-[100vw] animate-bg-scroll justify-start gap-4 overflow-hidden bg-white bg-[url(./assets/background.jpg)] bg-[length:400px_200px] bg-center bg-repeat font-poppins prose-p:text-black">
       <BrowserRouter>
         <Header />
         <Sidebar asPage={false} />
         <div className="h-full w-full overflow-y-hidden bg-yellow-50/20 md:w-10/12">
-          <div className="h-[100dvh] w-full overflow-y-auto px-1 pb-36 pt-4 lg:pb-20 lg:pl-[400px] lg:pr-10 lg:pt-10">
+          <div className="scrollbar-hide h-[100dvh] w-full overflow-y-auto px-1 pb-36 pt-4 lg:pb-20 lg:pl-[400px] lg:pr-10 lg:pt-10">
             <Routes>
               <Route path="/" element={<Intro />} />
               <Route path="/skills" element={<Skills />} />

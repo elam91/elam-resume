@@ -9,7 +9,7 @@ const Intro = () => {
   return (
     <div
       className={clsx(
-        "flex h-screen w-full flex-col justify-start gap-y-2 scroll-auto bg-transparent",
+        "scrollbar-hide flex h-screen w-full flex-col justify-start gap-y-2 scroll-auto bg-transparent",
       )}
     >
       <GlassCard className="h-full md:h-full">
